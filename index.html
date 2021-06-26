@@ -33,7 +33,7 @@
                         class="fa fa-address-card fa-lg"></span> Contact</a></li>
             </ul>
             <span class="navbar-text">
-                    <a data-toggle="modal" data-target="#loginModal">
+                    <a id="login">
                     <span class="fa fa-sign-in"></span> Login</a>
                 </span>
         </div>
@@ -78,7 +78,7 @@
         </div>
     </div>
 </div>
-<div id="ReserveModal" class="modal fade" role="dialog">
+<div id="reserveModal" class="modal fade" role="dialog">
     <div class="modal-dialog modal-lg" role="content">
         <!-- Modal content-->
         <div class="modal-content">
@@ -134,11 +134,11 @@
                                     <div class="col-form-label col-sm-2 pt-0">Section</div>
                                     <div class="col-sm-10 d-flex justify-content-start hide">
                                         <div class="btn-group" data-toggle="buttons">
-                                            <label class="btn btn-success focus active">
-                                                <input type="radio" name="is-smoking" id="option1" checked> Non-Smoking
+                                            <label class="btn btn-success focus active" for="option1">
+                                                <input type="radio" name="is-smoking" id="option1" value="option1" checked> Non-Smoking
                                             </label>
-                                            <label class="btn btn-danger">
-                                                <input type="radio" name="is-smoking" id="option2"> Smoking
+                                            <label class="btn btn-danger" for="option2">
+                                                <input type="radio" name="is-smoking" id="option2" value="option2"> Smoking
                                             </label>
                                         </div>
                                     </div>
@@ -165,7 +165,6 @@
                                     <button type="submit" class="btn btn-primary">Reserve</button>
                                 </div>
                             </div>
-                    </div>
                     </form>
                 </div>
             </div>
@@ -186,9 +185,8 @@
                 <img src="img/logo.png" class="img-fluid">
             </div>
             <div class="col-12 col-sm-3 align-self-center">
-                <a role="button" class="btn btn-block nav-link btn-warning"
-                   data-toggle="modal" data-target="#ReserveModal"
-                   data-html="true" title="Or Call us at  <br><strong>+852 12345678</strong>">Reserve Table</a></div>
+                <a role="button" id="reserve" class="btn btn-block nav-link btn-warning"
+                    title="Or Call us at  <br><strong>+852 12345678</strong>">Reserve Table</a></div>
 
         </div>
     </div>
@@ -367,6 +365,18 @@
 <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
 <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
 <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#reserve").click(function(){
+            $("#reserveModal").modal();
+        });
+        $("#login").click(function(){
+            $("#loginModal").modal();
+        });
+
+    });
+</script>
+
 </body>
 
 </html>
